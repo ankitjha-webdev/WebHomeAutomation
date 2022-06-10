@@ -1,26 +1,37 @@
 import React from "react";
-import profile from './profile.jpg';
-
-function App() {
+import Hero from "./components/Hero";
+import { NoPage } from "./components/NoPage";
+import { Route, Routes } from "react-router";
+import { About } from "./components/About";
+import { Login } from "./components/Login";
+import { Nav } from "./components/Nav";
+import {Navigate} from 'react-router-dom';
+const App = (props) => {
   const [data, setData] = React.useState(null);
 
- React.useEffect(() => {
+  React.useEffect(() => {
     fetch("/api")
-    .then((res) => res.json())
-    .then((data) => setData(data.message))
-  
+      .then((res) => res.json())
+      .then((data) => setData(data.heading))
+
   }, [])
-  
+
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="text-3xl font-bold underline text-gray-800">Ankit kumar Jha</h1>
-        <img src={profile} className="App-logo" alt="logo" />
-        <p className="text-2xl font-bold underline">
-         {!data ? "Loading..." : data}
-        </p>
+        <Nav />
       </header>
+      <main>
+
+        <Routes>
+          <Route path='/' exact element={<Hero />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/login' element={<Login />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
     </div>
   );
 }

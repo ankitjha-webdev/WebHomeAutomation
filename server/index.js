@@ -11,8 +11,9 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server! with Ankit" });
+    res.json({ heading: "Home Based Automation Syatem Project", subheading: "Home Automation system consist of a servers and sensors. These servers are remote servers located on Internet which help you to manage and process the data without the need of personalised computers." });
   });
+
 
   // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
