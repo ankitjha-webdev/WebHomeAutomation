@@ -1,0 +1,27 @@
+{
+  "name": "webhomeautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "16.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitjha-webdev/WebHomeAutomation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitjha-webdev/WebHomeAutomation/issues"
+  },
+  "homepage": "https://github.com/ankitjha-webdev/WebHomeAutomation#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
