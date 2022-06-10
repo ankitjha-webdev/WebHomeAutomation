@@ -1,6 +1,5 @@
 import React from "react";
 import profile from './profile.jpg';
-import './App.css';
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -16,9 +15,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Ankit kumar Jha</h1>
+        <h1 className="text-3xl font-bold underline text-gray-800">Ankit kumar Jha</h1>
         <img src={profile} className="App-logo" alt="logo" />
-        <p>
+        <p className="text-2xl font-bold underline">
          {!data ? "Loading..." : data}
         </p>
       </header>
