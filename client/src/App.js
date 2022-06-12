@@ -6,6 +6,12 @@ import { About } from "./components/About";
 import { Login } from "./components/Login";
 import { Nav } from "./components/Nav";
 import {Navigate} from 'react-router-dom';
+import { Home } from "./components/Home";
+import { Register } from "./components/Register";
+import { Model } from "./components/Model";
+import { Light } from "./components/Light";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 const App = (props) => {
   const [data, setData] = React.useState(null);
 
@@ -29,8 +35,13 @@ const App = (props) => {
           <Route path='/about' element={<About />} />
           <Route path='/about' element={<About />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/home/light" element={<Light />} />
         </Routes>
+        <Footer/>
       </main>
     </div>
   );

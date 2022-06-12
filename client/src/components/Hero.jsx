@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import login from '../images/smart-home-banner-img.gif'
+import { About } from './About';
+import { Footer } from './Footer';
 const Hero = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -28,7 +31,7 @@ const Hero = () => {
                                         you to manage and process the data without the need of personalised computers.
                                     </p>
                                     <button className=" w-full border-4 border-gray-100 px-6 py-4 skew-x-2 skew-y-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-[#3ca2db] shadow-lg rounded-md lg:w-auto hover:bg-blue-400 focus:outline-none focus:bg-blue-500">
-                                        Signup for free!
+                                       <Link to="/register"> Signup for free!</Link>
                                     </button>
                                 </div>
                             </div>
@@ -43,6 +46,7 @@ const Hero = () => {
                     </div>
                 </header>
             </div>
+            <About/>
         </div>
     )
 }
