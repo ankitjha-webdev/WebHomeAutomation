@@ -1,54 +1,35 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const dbConnect = require("../db");
 const path = require('path');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3001;
+const cors = require('cors');
+const bodyParser = require('body-parser')
+const authRouter = require('../routes/auth');
+const userRouter = require('../routes/users');  // userRouter is the name of the file (users.js)
 
-const app = express();
 dotenv.config();
+const PORT = process.env.PORT || 5000;
+const app = express();
+app.use(express.json()) // for parsing application/json;
+app.use(cors()); // allow all cross-origin requests
 
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://user:user@cluster0.8lypi.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   console.log(collection);
-//   client.close();
-// });
-// Have Node serve the files for our built React app
+dbConnect(); // connect to the mongo db (db.js)
+
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-app.get("/api", (req, res) => {
-    res.json({ heading: "Home Based Automation Syatem Project", subheading: "Home Automation system consist of a servers and sensors. These servers are remote servers located on Internet which help you to manage and process the data without the need of personalised computers." });
-  });
-
 
   // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
+app.use('/api/auth', authRouter);
+app.use('/api/users', userRouter);
 
-
-// connect mongodb
-const connect = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO);
-    console.log('MongoDB connected with ${process.env.MONGO}');
-  } catch (error) {
-    throw(error);
-  }
-};
-
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose is connected');
-}
-);
-mongoose.connection.on('error', (err) => {
-  console.log('Mongoose connection error: ' + err);
-}
-);
+// 404 url not found
+app.use((req, res,next) =>{
+  res.status(404).json({msg: '404 Not Found'});
+})
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
