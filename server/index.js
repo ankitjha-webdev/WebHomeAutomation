@@ -4,7 +4,6 @@ const dbConnect = require("../db");
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser')
 const authRouter = require('../routes/auth');
 const userRouter = require('../routes/users');  // userRouter is the name of the file (users.js)
 
@@ -19,9 +18,9 @@ dbConnect(); // connect to the mongo db (db.js)
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
   // All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+// });
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);

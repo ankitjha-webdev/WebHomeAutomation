@@ -9,7 +9,7 @@ const dbConnect = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         }).then(() =>{
-            console.log('MongoDB Connected Successfully ! ');
+            console.info('Connected to MongoDB Atlas successfully 🎉 🎉 🎉 ');
         }).catch((err) =>{
             console.error(`Error: ${err}`);
         })
