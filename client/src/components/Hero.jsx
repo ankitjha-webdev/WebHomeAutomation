@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import login from '../images/smart-home-banner-img.gif'
-import { About } from './About';
+import { About } from '../pages/About';
 import { Footer } from './Footer';
+import { StackComp } from './StackComp';
 const Hero = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -47,6 +48,7 @@ const Hero = () => {
                 </header>
             </div>
             <About/>
+            <StackComp/>
         </div>
     )
 }

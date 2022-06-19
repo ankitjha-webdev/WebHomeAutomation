@@ -4,7 +4,7 @@ import linkedin from '../images/linkedin.png'
 export const Footer = () => {
 
     return (
-        <footer className="bg-sky-50">  
+        <footer className="bg-sky-50 ">  
             <div className="container  px-6 py-4">
                 <div className="flex flex-wrap justify-center "> 
                     <div className="w-full lg:w-auto text-center lg:text-left">

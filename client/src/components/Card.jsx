@@ -7,111 +7,37 @@ import study from '../images/study.gif'
 import dining from '../images/dining.png'
 export const Card = () => {
     return (
-        <div className='container lg:flex-wrap py-24 px-6 mx-auto max-w-7xl lg:flex space-x-8 lg:justify-center	'>
-            {/* Living Room */}
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full h-3xl object-cover"
-                        src={living}
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Living Room</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
+       <>
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+                            <div class="mb-10 overflow-hidden rounded-lg bg-white">
+                                <img
+                                    src="assets/images/cards/card-01/image-03.jpg"
+                                    alt="image"
+                                    class="w-full"
+                                />
+                                <div class="p-8 text-center sm:p-9 md:p-7 xl:p-9">
+                                    <h3>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]"
+                                        >
+                                            Creative Card Component designs graphic elements
+                                        </a>
+                                    </h3>
+                                    <p class="mb-7 text-base leading-relaxed text-body-color">
+                                        Lorem ipsum dolor sit amet pretium consectetur adipiscing
+                                        elit. Lorem consectetur adipiscing elit.
+                                    </p>
 
-            {/* Kitchen Room */}
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full h-3xl object-cover"
-                        src={kitchen}
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Kitchen</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
-            {/* Bedroom */}
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full h-3xl object-cover"
-                        src={bedroom}
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Bedroom</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
-
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full h-3xl object-cover"
-                        src={bathroom}
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Bathroom</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
-
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full h-3xl object-cover"
-                        src={study}
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Study Room</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
-
-            <div className="max-w-md ease-out ease-out transition-shadow py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-                <div className=" flex justify-center md:justify-end -mt-16">
-                    <img
-                        className=" w-full object-cover"
-                        src={dining}
-                      
-                    />
-                </div>
-                <div>
-                    <h2 className="text-gray-800 items-center  text-3xl justify-between font-semibold">Dining Room</h2>
-                </div>
-                <div className="flex justify-between items-center  mt-4">
-                    <a href="#" className="text-xl font-medium text-[#3ca2db] items-center">
-                        4 Devices
-                    </a>
-                </div>
-            </div>
-        </div>
+                                    <a
+                                        href="javascript:void(0)"
+                                        class="inline-block rounded-full border border-[#E5E7EB] py-2 px-7 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                                    >
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+       </>
     )
 }

@@ -2,16 +2,18 @@ import React from "react";
 import Hero from "./components/Hero";
 import { NoPage } from "./components/NoPage";
 import { Route, Routes } from "react-router";
-import { About } from "./components/About";
-import { Login } from "./components/Login";
+import { About } from "./pages/About";
+import { Login } from "./pages/Login";
 import { Nav } from "./components/Nav";
 import {Navigate} from 'react-router-dom';
-import { Home } from "./components/Home";
-import { Register } from "./components/Register";
+import { Home } from "./pages/Home";
+import { Register } from "./pages/Register";
 import { Model } from "./components/Model";
 import { Light } from "./components/Light";
-import { Contact } from "./components/Contact";
+import { Contact } from "./pages/Contact";
 import { Footer } from "./components/Footer";
+import { StackComp } from "./components/StackComp";
+import RoomPage from "./pages/RoomPage";
 const App = (props) => {
   const [data, setData] = React.useState(null);
 
@@ -40,6 +42,7 @@ const App = (props) => {
           <Route path='/contact' element={<Contact />} />
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/home/light" element={<Light />} />
+          <Route path="/home/room" element={<RoomPage/>? <RoomPage/>:<NoPage />} />
         </Routes>
         <Footer/>
       </main>

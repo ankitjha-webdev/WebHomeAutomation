@@ -1,200 +1,359 @@
-import React from 'react'
-
-export const Model = () => {
+import React from "react";
+import { Link } from "react-router-dom";
+import close from "../images/close.svg";
+import livingRoom from "../images/living-room.svg";
+export default function Modal() {
+  const [showModal, setShowModal] = React.useState(false);
   return (
-    <div>
-        <div>
-        <>
-  {/* Code block starts */}
-  <dh-component>
-    {/*- more free and premium Tailwind CSS components at https://tailwinduikit.com/ -*/}
-    <div
-      className="py-12 bg-gray-700 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
-      id="modal"
-    >
-      <div role="alert" className="container mx-auto w-11/12 md:w-2/3 max-w-lg">
-        <div className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
-          <div className="w-full flex justify-start text-gray-600 mb-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-wallet"
-              width={52}
-              height={52}
-              viewBox="0 0 24 24"
-              strokeWidth={1}
-              stroke="currentColor"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
-              <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
-            </svg>
-          </div>
-          <h1 className="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">
-            Enter Billing Details
-          </h1>
-          <label
-            htmlFor="name"
-            className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >
-            Owner Name
-          </label>
-          <input
-            id="name"
-            className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-            placeholder="James"
-          />
-          <label
-            htmlFor="email2"
-            className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >
-            Card Number
-          </label>
-          <div className="relative mb-5 mt-2">
-            <div className="absolute text-gray-600 flex items-center px-4 border-r h-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-credit-card"
-                width={20}
-                height={20}
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <rect x={3} y={5} width={18} height={14} rx={3} />
-                <line x1={3} y1={10} x2={21} y2={10} />
-                <line x1={7} y1={15} x2="7.01" y2={15} />
-                <line x1={11} y1={15} x2={13} y2={15} />
-              </svg>
-            </div>
-            <input
-              id="email2"
-              className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
-              placeholder="XXXX - XXXX - XXXX - XXXX"
-            />
-          </div>
-          <label
-            htmlFor="expiry"
-            className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >
-            Expiry Date
-          </label>
-          <div className="relative mb-5 mt-2">
-            <div className="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-calendar-event"
-                width={20}
-                height={20}
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <rect x={4} y={5} width={16} height={16} rx={2} />
-                <line x1={16} y1={3} x2={16} y2={7} />
-                <line x1={8} y1={3} x2={8} y2={7} />
-                <line x1={4} y1={11} x2={20} y2={11} />
-                <rect x={8} y={15} width={2} height={2} />
-              </svg>
-            </div>
-            <input
-              id="expiry"
-              className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-              placeholder="MM/YY"
-            />
-          </div>
-          <label
-            htmlFor="cvc"
-            className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >
-            CVC
-          </label>
-          <div className="relative mb-5 mt-2">
-            <div className="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-info-circle"
-                width={20}
-                height={20}
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx={12} cy={12} r={9} />
-                <line x1={12} y1={8} x2="12.01" y2={8} />
-                <polyline points="11 12 12 12 12 16 13 16" />
-              </svg>
-            </div>
-            <input
-              id="cvc"
-              className="mb-8 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-              placeholder="MM/YY"
-            />
-          </div>
-          <div className="flex items-center justify-start w-full">
-            <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
-              Submit
-            </button>
-            <button
-              className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
-              onclick="modalHandler()"
-            >
-              Cancel
-            </button>
-          </div>
-          <button
-            className="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
-            onclick="modalHandler()"
-            aria-label="close modal"
-            role="button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-x"
-              width={20}
-              height={20}
-              viewBox="0 0 24 24"
-              strokeWidth="2.5"
-              stroke="currentColor"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <line x1={18} y1={6} x2={6} y2={18} />
-              <line x1={6} y1={6} x2={18} y2={18} />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div className="w-full flex justify-center py-12" id="button">
+    <>
       <button
-        className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm"
-        onclick="modalHandler(true)"
-      >
-        Open Modal
+        className="w-full border-4 border-gray-100 px-6 py-4 skew-x-4 skew-y-1 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-[#3ca2db] shadow-lg rounded-md lg:w-auto hover:bg-blue-400 focus:outline-none focus:bg-blue-500"
+        type="button"
+        onClick={() => setShowModal(true)} >
+        Create a Room!
       </button>
-    </div>
-  </dh-component>
-  {/* Code block ends */}
-</>
+      {showModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
 
-        </div>
-    </div>
-  )
+            {/*content*/}
+
+            <div
+              class="
+        border-t-8
+        border-[#3ca2db]
+          flex flex-col
+          bg-white
+          shadow-md
+          px-4
+          sm:px-6
+          md:px-8
+          lg:px-10
+          py-8
+          w-50
+          max-w-md
+        "
+            >
+              <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+                Web Home Automation
+              </div>
+              <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+                Enter your details to create a room
+              </div>
+
+              <div class="mt-10">
+                <form action="#">
+                  <div class="flex flex-col mb-5">
+                    <label
+                      for="name"
+                      class="mb-1 text-xs tracking-wide text-gray-600"
+                    >Room Name:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                      >
+                        <i class="fas fa-at text-blue-500"></i>
+                      </div>
+
+                      <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                   
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                        placeholder="Enter your room name"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col mb-5">
+                    <label
+                      for="email"
+                      class="mb-1 text-xs tracking-wide text-gray-600"
+                    >Description:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                      >
+                        <i class="fas fa-at text-blue-500"></i>
+                      </div>
+
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                        placeholder="Enter the room description about the room"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col mb-6">
+                    <label
+                      for="password"
+                      class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Fan:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                      >
+                        <span>
+                          <i class="fas fa-lock text-blue-500"></i>
+                        </span>
+                      </div>
+
+                      <input
+                        id="number"
+                        type="number"
+                        name="Number of fans"
+                        class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                        placeholder="Enter the number of fans"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col mb-6">
+                    <label
+                      for="password"
+                      class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Ac:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                      >
+                        <span>
+                          <i class="fas fa-lock text-blue-500"></i>
+                        </span>
+                      </div>
+
+                      <input
+                        id="number"
+                        type="number"
+                        name="Number of fans"
+                        class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                        placeholder="Enter the number of ac"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col mb-6">
+                    <label
+                      for="password"
+                      class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Bulbs:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                      >
+                        <span>
+                          <i class="fas fa-lock text-blue-500"></i>
+                        </span>
+                      </div>
+
+                      <input
+                        id="number"
+                        type="number"
+                        name="Number of fans"
+                        class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                        placeholder="Enter the number of bulbs"
+                      />
+                    </div>
+                  </div>
+
+
+                  <div class="flex w-full">
+                    <button
+                      type="submit"
+                      class="
+                  flex
+                  mt-2
+                  items-center
+                  justify-center
+                  // focus:outline-none
+                  text-white
+                  text-sm
+                  sm:text-base
+                  bg-[#3ca2db]
+                  hover:bg-blue-400
+                  py-2
+                  w-full
+                  transition
+                  duration-150
+                  ease-in
+                  mx-3
+                "
+                    >
+                      <span class="mr-2 uppercase">Create</span>
+                      <span>
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                    <button
+                      className=" flex
+                    mt-2
+                    items-center
+                    justify-center
+                    // focus:outline-none
+                    text-white
+                    text-sm
+                    sm:text-base
+                    bg-[#3ca2db]
+                    hover:bg-blue-400
+                    py-2
+                    w-full
+                    transition
+                    duration-150
+                    ease-in"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+
+                      <span class="mr-2 uppercase">Close</span>
+                      {/* <img src={close} className="h-6 w-6" alt="" srcset="" /> */}
+                      <svg fill="#ffffff" viewBox="0 0 30 30" className="h-6 w-6"  >    
+                      <path d="M 7 4 C 6.744125 4 6.4879687 4.0974687 6.2929688 4.2929688 L 4.2929688 6.2929688 C 3.9019687 6.6839688 3.9019687 7.3170313 4.2929688 7.7070312 L 11.585938 15 L 4.2929688 22.292969 C 3.9019687 22.683969 3.9019687 23.317031 4.2929688 23.707031 L 6.2929688 25.707031 C 6.6839688 26.098031 7.3170313 26.098031 7.7070312 25.707031 L 15 18.414062 L 22.292969 25.707031 C 22.682969 26.098031 23.317031 26.098031 23.707031 25.707031 L 25.707031 23.707031 C 26.098031 23.316031 26.098031 22.682969 25.707031 22.292969 L 18.414062 15 L 25.707031 7.7070312 C 26.098031 7.3170312 26.098031 6.6829688 25.707031 6.2929688 L 23.707031 4.2929688 C 23.316031 3.9019687 22.682969 3.9019687 22.292969 4.2929688 L 15 11.585938 L 7.7070312 4.2929688 C 7.5115312 4.0974687 7.255875 4 7 4 z" />
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="flex justify-center items-center mt-6">
+              <a
+                href="/"
+                target="_blank"
+                class="
+            inline-flex
+            items-center
+            text-gray-700
+            font-medium
+            text-xs text-center
+          "
+              >
+                <span class="ml-2"
+                >Do you have an account?
+                  <Link to="/login"
+                    className="text-xs ml-2 text-[#3ca2db] font-semibold"
+                  >Login now</Link> </span
+                >
+              </a>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+    </>
+  );
 }

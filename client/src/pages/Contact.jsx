@@ -24,8 +24,7 @@ export const Contact = () => {
                   sm:text-[40px]
                   lg:text-[36px]
                   xl:text-[40px]
-                  "
-                  >
+                  ">
                   GET IN TOUCH WITH US
                </h2>
                <p class="text-base text-body-color leading-relaxed mb-9">
