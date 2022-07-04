@@ -5,6 +5,7 @@ import bedroom from '../images/smart-bedroom.gif'
 import bathroom from '../images/bathroom.gif'
 import study from '../images/study.gif'
 import dining from '../images/dining.png'
+import { Link } from 'react-router-dom'
 export const Card = () => {
     return (
        <>
@@ -17,24 +18,22 @@ export const Card = () => {
                                 />
                                 <div class="p-8 text-center sm:p-9 md:p-7 xl:p-9">
                                     <h3>
-                                        <a
-                                            href="javascript:void(0)"
+                                        <Link to='/'
                                             class="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]"
                                         >
                                             Creative Card Component designs graphic elements
-                                        </a>
+                                        </Link>
                                     </h3>
                                     <p class="mb-7 text-base leading-relaxed text-body-color">
                                         Lorem ipsum dolor sit amet pretium consectetur adipiscing
                                         elit. Lorem consectetur adipiscing elit.
                                     </p>
 
-                                    <a
-                                        href="javascript:void(0)"
+                                    <Link to="/"
                                         class="inline-block rounded-full border border-[#E5E7EB] py-2 px-7 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
                                     >
                                         View Details
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

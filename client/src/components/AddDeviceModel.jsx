@@ -1,15 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import close from "../images/close.svg";
-export default function Modal() {
-  const [showModal, setShowModal] = React.useState(false);
+import React from 'react'
+import { Link } from 'react-router-dom';
+
+const AddDeviceModel = () => {
+    const [showModal, setShowModal] = React.useState(false);
+
   return (
-    <>
-      <button
+    <div>
+         <button
         className="w-full border-4 border-gray-100 px-6 py-4 skew-x-4 skew-y-1 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-[#3ca2db] shadow-lg rounded-md lg:w-auto hover:bg-blue-400 focus:outline-none focus:bg-blue-500"
         type="button"
         onClick={() => setShowModal(true)} >
-        Create a Room!
+        Add Device!
       </button>
       {showModal ? (
         <>
@@ -39,7 +40,7 @@ export default function Modal() {
                 Web Home Automation
               </div>
               <div className="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                Enter your details to create a room
+                Enter your details to add your device
               </div>
 
               <div className="mt-10">
@@ -82,7 +83,7 @@ export default function Modal() {
                     py-2
                     focus:outline-none focus:border-blue-400
                   "
-                        placeholder="Room name"
+                        placeholder="Device name"
                       />
                     </div>
                   </div>
@@ -124,7 +125,7 @@ export default function Modal() {
                     py-2
                     focus:outline-none focus:border-blue-400
                   "
-                        placeholder=" Room description"
+                        placeholder=" Device description"
                       />
                     </div>
                   </div>
@@ -151,7 +152,7 @@ export default function Modal() {
                   mx-3
                 "
                     >
-                      <span className="mr-2 uppercase">Create</span>
+                      <span className="mr-2 uppercase">Add</span>
                       <span>
                         <svg
                           className="h-6 w-6"
@@ -198,30 +199,12 @@ export default function Modal() {
                 </form>
               </div>
             </div>
-            <div className="flex justify-center items-center mt-6">
-              <a
-                href="/"
-                target="_blank"
-                className="
-            inline-flex
-            items-center
-            text-gray-700
-            font-medium
-            text-xs text-center
-          "
-              >
-                <span clasNsme="ml-2"
-                >Do you have an account?
-                  <Link to="/login"
-                    className="text-xs ml-2 text-[#3ca2db] font-semibold"
-                  >Login now</Link> </span
-                >
-              </a>
-            </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
-    </>
-  );
+    </div>
+  )
 }
+
+export default AddDeviceModel

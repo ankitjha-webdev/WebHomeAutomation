@@ -65,8 +65,8 @@ export const Nav = () => {
                     </div>
                 </div>
             </nav>
-            <div class="bg-gray-50 animate-pulse border--4 border-[#3ca2db] border-t-8 text-[#3ca2db] p-4" role="alert">
-                <p class="font-bold"></p>
+            <div className="bg-gray-50 animate-pulse border--4 border-[#3ca2db] border-t-8 text-[#3ca2db] p-4" role="alert">
+                <p className="font-bold"></p>
                 <p></p>
             </div>
         </div>

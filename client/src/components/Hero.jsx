@@ -23,8 +23,7 @@ const Hero = () => {
                             <div className="w-full lg:w-1/2">
                                 <div className="lg:max-w-lg">
                                     <h1 className="text-2xl font-semibold text-gray-800 uppercase  lg:text-3xl">
-                                    {!data ? "Loading..." : data}
-                                    
+                                    Home Automation System
                                     </h1>
                                     <p className="mt-2 text-gray-600 dark:text-gray-400">
                                        Home Automation system consist of a servers and sensors.

@@ -1,26 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    name:{
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
         type: String,
         required: true
     },
-    email:{
+    profilePic: {
         type: String,
-        unique: true
+        default: '',
     },
-    password:{
-        type: String,
-        required: true 
-    },
-    profilePicture: {
-        type: String,
-        default: "",
-    },  // default is empty string
-    admin:{
+    admin: {
         type: Boolean,
         default: false
-    }
-},{timestamps: true});
+    },
+}, {
+    timestamps: true
+}); // timestamps: true adds createdAt and updatedAt fields to the schema
 
 module.exports = mongoose.model('User', userSchema);

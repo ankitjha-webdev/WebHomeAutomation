@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AddDeviceModel from '../components/AddDeviceModel'
 import { Rooms } from '../components/Rooms'
 import StatusComp from '../components/StatusComp'
 const RoomPage = () => {
+    const [showModal, setShowModal] = React.useState(false);
     return (
         <div className='mb-auto h-screen'>
             {/* hero */}
@@ -18,9 +20,14 @@ const RoomPage = () => {
 
                             </h1>
                             <p className="mt-2 text-sky-600 dark:text-gray-400">
-                                A room for you to relax and enjoy your life. 
+                                A room for you to relax and enjoy your life.
                                 From here you can control your room loads
                             </p>
+                            <div className="flex">
+                            <AddDeviceModel />
+                             
+                            </div>
+
                         </div>
 
                     </div>
@@ -29,12 +36,12 @@ const RoomPage = () => {
             </div>
 
             {/* show room name in card */}
-           <div className='flex mx-auto max-w-7xl'>
-           <StatusComp />
-            <StatusComp />
-            <StatusComp />
-            <StatusComp />
-           </div>
+            <div className='flex mx-auto max-w-7xl'>
+                <StatusComp />
+                <StatusComp />
+                <StatusComp />
+                <StatusComp />
+            </div>
         </div>
     )
 }

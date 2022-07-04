@@ -11,8 +11,7 @@ export const Ac = () => {
                 <div className=" flex md:justify-between mt-2 w-auto">
                     <img
                         className=" w-20 h-20 "
-                        src={ac}
-                    />
+                        src={ac} />
     
                 </div>
                     <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">

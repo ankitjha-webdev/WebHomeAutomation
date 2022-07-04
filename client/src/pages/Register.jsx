@@ -1,16 +1,42 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Register = () => {
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(false)
+   try {
+    const res=await axios.post('http://localhost:3000/api/auth/register', {
+    username,
+    email,
+    password,
+   });
+   res.data && window.location.replace('/login');
+   } catch (error) {
+    setError(true)
+   }
+  };
+    const getdata = async (e) =>{
+      const res= await axios.get("http://localhost:3000/api/users/")
+      console.log(res)
+    }
+    getdata()
   return (
       <>
       
     <div>
          <div
-      class="min-h-screen  flex flex-col items-center justify-center "
+      className="min-h-screen  flex flex-col items-center justify-center "
     >
       <div
-        class="
+        className="
         border-y-8 
         border-[#3ca2db]
           flex flex-col
@@ -26,24 +52,24 @@ export const Register = () => {
           max-w-md
         "
       >
-        <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+        <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">
         Web Home Automation 
         </div>
-        <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+        <div className="mt-4 self-center text-xl sm:text-sm text-gray-800">
           Enter your details to register
         </div>
 
-        <div class="mt-10">
-          <form action="#">
-          <div class="flex flex-col mb-5">
+        <div className="mt-10">
+          <form onSubmit={handleSubmit}>
+          <div className="flex flex-col mb-5">
               <label
                 for="name"
-                class="mb-1 text-xs tracking-wide text-gray-600"
-                >Your Name:</label
+                className="mb-1 text-xs tracking-wide text-gray-600"
+                >Your Username:</label
               >
-              <div class="relative">
+              <div className="relative">
                 <div
-                  class="
+                  className="
                     inline-flex
                     items-center
                     justify-center
@@ -55,14 +81,14 @@ export const Register = () => {
                     text-gray-400
                   "
                 >
-                  <i class="fas fa-at text-blue-500"></i>
+                  <i className="fas fa-at text-blue-500"></i>
                 </div>
 
                 <input
                   id="name"
                   type="text"
                   name="name"
-                  class="
+                  className="
                     text-sm
                     placeholder-gray-500
                     pl-10
@@ -74,19 +100,20 @@ export const Register = () => {
                     focus:outline-none focus:border-blue-400
                   "
                   placeholder="Enter your name"
+                  onClick={e=>setUsername(e.target.value)}
                 />
               </div>
             </div>
             
-            <div class="flex flex-col mb-5">
+            <div className="flex flex-col mb-5">
               <label
                 for="email"
-                class="mb-1 text-xs tracking-wide text-gray-600"
+                className="mb-1 text-xs tracking-wide text-gray-600"
                 >E-Mail Address:</label
               >
-              <div class="relative">
+              <div className="relative">
                 <div
-                  class="
+                  className="
                     inline-flex
                     items-center
                     justify-center
@@ -98,14 +125,14 @@ export const Register = () => {
                     text-gray-400
                   "
                 >
-                  <i class="fas fa-at text-blue-500"></i>
+                  <i className="fas fa-at text-blue-500"></i>
                 </div>
 
                 <input
                   id="email"
                   type="email"
                   name="email"
-                  class="
+                  className="
                     text-sm
                     placeholder-gray-500
                     pl-10
@@ -116,19 +143,20 @@ export const Register = () => {
                     py-2
                     focus:outline-none focus:border-blue-400
                   "
+                  onClick={e=>setEmail(e.target.value)}
                   placeholder="Enter your email"
                 />
               </div>
             </div>
-            <div class="flex flex-col mb-6">
+            <div className="flex flex-col mb-6">
               <label
                 for="password"
-                class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
                 >Password:</label
               >
-              <div class="relative">
+              <div className="relative">
                 <div
-                  class="
+                  className="
                     inline-flex
                     items-center
                     justify-center
@@ -141,7 +169,7 @@ export const Register = () => {
                   "
                 >
                   <span>
-                    <i class="fas fa-lock text-blue-500"></i>
+                    <i className="fas fa-lock text-blue-500"></i>
                   </span>
                 </div>
 
@@ -149,7 +177,7 @@ export const Register = () => {
                   id="password"
                   type="password"
                   name="password"
-                  class="
+                  className="
                     text-sm
                     placeholder-gray-500
                     pl-10
@@ -161,14 +189,15 @@ export const Register = () => {
                     focus:outline-none focus:border-blue-400
                   "
                   placeholder="Enter your password"
+                  onClick={e=>setPassword(e.target.value)}
                 />
               </div>
             </div>
 
-            <div class="flex w-full">
+            <div className="flex w-full">
               <button
                 type="submit"
-                class="
+                className="
                   flex
                   mt-2
                   items-center
@@ -186,11 +215,12 @@ export const Register = () => {
                   duration-150
                   ease-in
                 "
+
               >
-                <span class="mr-2 uppercase">Sign Up</span>
+                <span className="mr-2 uppercase">Sign Up</span>
                 <span>
                   <svg
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     fill="none"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -208,11 +238,11 @@ export const Register = () => {
           </form>
         </div>
       </div>
-      <div class="flex justify-center items-center mt-6">
+      <div className="flex justify-center items-center mt-6">
         <a
           href="/"
           target="_blank"
-          class="
+          className="
             inline-flex
             items-center
             text-gray-700
@@ -220,7 +250,7 @@ export const Register = () => {
             text-xs text-center
           "
         >
-          <span class="ml-2"
+          <span className="ml-2"
             >Do you have an account?
             <Link to="/login"
               className="text-xs ml-2 text-[#3ca2db] font-semibold"

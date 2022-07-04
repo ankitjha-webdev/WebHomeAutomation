@@ -9,7 +9,7 @@ export const Fan = () => {
             <div className="flex mx-auto max-w-7xl">
                 <div className=" p-6 rounded-lg shadow-lg bg-white max-w-sm">
                 <div className=" flex md:justify-between mt-2 w-auto">
-             <img src={fan} className='w-20 h-20 object-cover' alt="" srcset="" />
+             <img src={fan} className='w-20 h-20 object-cover' alt="" />
         
                 </div>
                     <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">

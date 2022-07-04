@@ -40,7 +40,7 @@ const StatusComp = () => {
             </CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
 
-              <Switch {...label} defaultChecked />
+              <Switch {...label} defaultChecked   />
             </Box>
           </Box>
           <CardMedia

@@ -1,88 +1,84 @@
-const User = require('../model/User');
-const bcrypt = require ('bcrypt');
 const router = require('express').Router();
-const bodyParser = require('body-parser');
+const User = require('../model/User');
+const bcrypt = require('bcrypt');
 
+// Update user
 
-// find user by email
-router.get('/:email', async (req, res) => {
-    try {
-        const user = await User.findOne({ email: req.params.email });
-        if (!user) return res.status(400).json({ msg: 'User does not exist with this' });
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-}
-);
-
-// get all
-router.get('/', async (req, res) => {
-    try {
-        const users  = await User.find();
-        const {password, ...withoutPassword} = users[0]._doc; 
-        res.status(200).json(withoutPassword);
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-});
-
-// @route   POST api/users/:id
-// @desc    Update a user
-// @access  Private
-// update user info
-router.put('/:id', async  (req, res) => {
-    User.findById(req.params.id, async (err, user) => {
-        if (err) {
-            res.status(500).json({
-                error: err
-            });
-        } else {
-            
-            if (req.body.name) {
-                user.name = req.body.name;
-            }
-            if (req.body.email) {
-                user.email = req.body.email;
-            }
-            if (req.body.password) {
-                const salt = await bcrypt.genSalt(10);
-                user.password = await bcrypt.hash(req.body.password, salt);
-            }
-            if (req.body.profilePicture) {
-                user.profilePicture = req.body.profilePicture;
-            }
-            user.save((err, user) => {
-                if (err) {
-                    res.status(500).json({
-                        error: err
-                    });
-                } else {
-                    res.status(200).json({
-                        user: user
-                    });
-                }
-            });
+router.put('/:id', async (req, res) => {
+    if(req.body.userId === req.params.id) {
+        if(req.body.password) {
+            const salt = await bcrypt.genSalt(10);
+            req.body.password = await bcrypt.hash(req.body.password, salt);
         }
-    });
+        try {
+            const updatedUser = await User.findByIdAndUpdate(req.params.id, {
+                $set: req.body,
+            }, { new: true });
+            res.status(200).json("User updated successfully");
+        } catch (error) {
+           res.status(500).send(error);
+        } 
+    } else {
+        res.status(401).json('Unauthorized user to update this user profile');
+    }
 
+     
 })
 
 // delete user
 router.delete('/:id', async (req, res) => {
-    try {
-        const user = await User.findByIdAndDelete(req.params.id);
-
-        res.status(200).json( " User deleted sucessfully " );
+    if(req.body.userId === req.params.id){
+        try {
+            const user = await User.findById(req.params.id);   
+        try {
+            await Post.deleteMany({username: user.username});
+            await User.findByIdAndDelete(req.params.id)
+            res.status(200).json("User deleted successfully");
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    } catch (error) {
+        res.status(404).send("User not found");
     }
-    catch (err) {
-        res.status(500).json({
-            error: err
-        });
+        
+    }else{
+        res.status(401).json('Unauthorized user to delete this user profile');
     }
-
 })
 
+// get user
+router.get('/:id', async (req, res) => {
+
+    try {
+        const user = await User.findById(req.params.id);
+        const {password, ...withoutPassword} = user._doc;
+        res.status(200).json(withoutPassword);
+    } catch (error) {
+        res.status(500).json(error + "User not found at this id " + req.params.id);
+    }
+})
+
+// get all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json(error);
+    } 
+}
+)
+// router.get('/', async function(req, res) {
+//     User.find({}, function(err, Users){
+//       if (err)
+//           return done(err);
+  
+//       if (Users) {
+//         console.log("Users count : " + user.length);
+//         res.status(200).json(Users);
+//       }
+//     });
+//   });
 
 
 module.exports = router;

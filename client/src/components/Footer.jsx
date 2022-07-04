@@ -18,8 +18,8 @@ export const Footer = () => {
                             https://www.linkedin.com/in/ankitkumarcse/" className="text-gray-600 font-bold">Ankit Kumar</Link>
                         </p>
                       <div className='flex space-x-4'>
-                      <a href="https://github.com/ankitjha-webdev/" >  <img src={github} alt="" srcset="" /> </a>
-                       <a href="https://www.linkedin.com/in/ankitkumarcse/" >  <img src={linkedin} width="32" height="32" alt="" srcset="" /> </a>
+                      <a href="https://github.com/ankitjha-webdev/" >  <img src={github} alt="" /> </a>
+                       <a href="https://www.linkedin.com/in/ankitkumarcse/" >  <img src={linkedin} width="32" height="32" alt="" /> </a>
                       </div>
                     </div>
                 </div>

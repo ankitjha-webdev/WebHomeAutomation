@@ -6,16 +6,16 @@ export const Contact = () => {
         <div className='mx-auto max-w-7xl'>
         <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
 
-<section class="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
-   <div class="container">
-      <div class="flex flex-wrap lg:justify-between -mx-4">
-         <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
-            <div class="max-w-[570px] mb-12 lg:mb-0">
-               <span class="block mb-4 text-base text-[#3ca2db] font-semibold">
+<section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
+   <div className="container">
+      <div className="flex flex-wrap lg:justify-between -mx-4">
+         <div className="w-full lg:w-1/2 xl:w-6/12 px-4">
+            <div className="max-w-[570px] mb-12 lg:mb-0">
+               <span className="block mb-4 text-base text-[#3ca2db] font-semibold">
                Contact Us
                </span>
                <h2
-                  class="
+                  className="
                   text-dark
                   mb-6
                   uppercase
@@ -27,20 +27,20 @@ export const Contact = () => {
                   ">
                   GET IN TOUCH WITH US
                </h2>
-               <p class="text-base text-body-color leading-relaxed mb-9">
+               <p className="text-base text-body-color leading-relaxed mb-9">
                We are here to assist you with any question you may have. Please feel free to contact us anytime. We will respond to your inquiry as soon as possible. We look forward to hearing from you.
                </p>
                <img src={contact} className='w-96 h-full' alt="" srcset="" />
             </div>
          </div>
-         <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
-            <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
+         <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
+            <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
                <form>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <input
                         type="text"
                         placeholder="Your Name"
-                        class="
+                        className="
                         w-full
                         rounded
                         py-3
@@ -53,11 +53,11 @@ export const Contact = () => {
                         "
                         />
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <input
                         type="email"
                         placeholder="Your Email"
-                        class="
+                        className="
                         w-full
                         rounded
                         py-3
@@ -70,11 +70,11 @@ export const Contact = () => {
                         "
                         />
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <input
                         type="text"
                         placeholder="Your Phone"
-                        class="
+                        className="
                         w-full
                         rounded
                         py-3
@@ -87,11 +87,11 @@ export const Contact = () => {
                         "
                         />
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <textarea
                         rows="6"
                         placeholder="Your Message"
-                        class="
+                        className="
                         w-full
                         rounded
                         py-3
@@ -108,7 +108,7 @@ export const Contact = () => {
                   <div>
                      <button
                         type="submit"
-                        class="
+                        className="
                         w-full
                         text-white
                         bg-[#3ca2db]
@@ -123,7 +123,7 @@ export const Contact = () => {
                   </div>
                </form>
                <div>
-                  <span class="absolute -top-10 -right-9 z-[-1]">
+                  <span className="absolute -top-10 -right-9 z-[-1]">
                      <svg
                         width="100"
                         height="100"
@@ -139,7 +139,7 @@ export const Contact = () => {
                            />
                      </svg>
                   </span>
-                  <span class="absolute -right-10 top-[90px] z-[-1]">
+                  <span className="absolute -right-10 top-[90px] z-[-1]">
                      <svg
                         width="34"
                         height="134"
@@ -359,7 +359,7 @@ export const Contact = () => {
                            />
                      </svg>
                   </span>
-                  <span class="absolute -left-7 -bottom-7 z-[-1]">
+                  <span className="absolute -left-7 -bottom-7 z-[-1]">
                      <svg
                         width="107"
                         height="134"
