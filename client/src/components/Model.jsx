@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import close from "../images/close.svg";
+import axios from "axios";
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
+  
+  // axios call to get all rooms
+  // const getRooms = async () => {
+  //   const response = await axios.get("/api/rooms");
+  //   console.log(response.data);
+  // }
+  
+
+
   return (
     <>
       <button

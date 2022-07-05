@@ -14,6 +14,7 @@ import { Contact } from "./pages/Contact";
 import { Footer } from "./components/Footer";
 import { StackComp } from "./components/StackComp";
 import RoomPage from "./pages/RoomPage";
+import { Room } from "./components/Room";
 const App = (props) => {
   const [data, setData] = React.useState(null);
 
@@ -43,6 +44,8 @@ const App = (props) => {
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/home/light" element={<Light />} />
           <Route path="/home/room" element={<RoomPage/>? <RoomPage/>:<NoPage />} />
+          <Route path="room/:id" element={<RoomPage/>? <RoomPage/>:<NoPage />} />
+          <Route path="/room" element={<Room />} />
         </Routes>
         <Footer/>
       </main>

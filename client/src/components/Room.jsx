@@ -1,7 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import living from '../images/living-room.gif'
+import axios from 'axios'
 export const Room = () => {
+
+      
+  // axios call to get all rooms
+//   const getRooms = async () => {
+//     const response = await axios.get("/api/rooms");
+//     console.log(response.data);
+//   }
+
     return (
         <div className=''>
             <section className="bg-gray-50 pt-20 pb-10 lg:pt-[120px] lg:pb-20">
