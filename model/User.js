@@ -9,14 +9,13 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     profilePic: {
-        type: String,
+        type: String, 
         default: '',
     },
     admin: {
@@ -26,5 +25,5 @@ const userSchema = new mongoose.Schema({
 }, {
     timestamps: true
 }); // timestamps: true adds createdAt and updatedAt fields to the schema
-
+    
 module.exports = mongoose.model('User', userSchema);

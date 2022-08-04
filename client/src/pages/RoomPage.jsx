@@ -1,10 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+import Axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom'
 import AddDeviceModel from '../components/AddDeviceModel'
-import { Rooms } from '../components/Rooms'
 import StatusComp from '../components/StatusComp'
 const RoomPage = () => {
-    const [showModal, setShowModal] = React.useState(false);
+    const location = useLocation();
+    const path = location.pathname.split('/')[2];
+    const [name, setName] = useState({});
+    const [device, setDevice] = useState({});
+    useEffect(() => {
+        const getDevice = async () => {
+            const res = await Axios.get("http://localhost:4000/api/room/" + path);
+            setName(res.data);
+            setDevice(res.data.Device);
+            console.log(res.data.Device[0]._id);
+            console.log(res.data._id);
+        }
+        getDevice()
+    }, [path]);
     return (
         <div className='mb-auto h-screen'>
             {/* hero */}
@@ -16,7 +30,7 @@ const RoomPage = () => {
                             <Link to="/register"> Create a Room!</Link>
                         </button> */}
                             <h1 className="text-2xl font-semibold text-gray-800 uppercase  lg:text-3xl">
-                                Living Room <span className="text-red-600">❤</span>
+                                {name.name} <span className="text-red-600">❤</span>
 
                             </h1>
                             <p className="mt-2 text-sky-600 dark:text-gray-400">
@@ -24,8 +38,12 @@ const RoomPage = () => {
                                 From here you can control your room loads
                             </p>
                             <div className="flex">
-                            <AddDeviceModel />
-                             
+                                <AddDeviceModel device={device} />
+                                <Link to="/dashboard">
+                                    <button className="mx-10 w-full border-4 border-gray-100 px-6 py-4 skew-x-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-[#3ca2db] shadow-lg rounded-md lg:w-auto hover:bg-blue-400 focus:outline-none focus:bg-blue-500">
+                                        Dashboard!
+                                    </button>
+                                </Link>
                             </div>
 
                         </div>
@@ -36,11 +54,8 @@ const RoomPage = () => {
             </div>
 
             {/* show room name in card */}
-            <div className='flex mx-auto max-w-7xl'>
-                <StatusComp />
-                <StatusComp />
-                <StatusComp />
-                <StatusComp />
+            <div className=' mx-auto max-w-7xl'>
+                <StatusComp device={device} />
             </div>
         </div>
     )

@@ -35,7 +35,7 @@ export const Nav = () => {
                     <div className="items-center lg:flex text-gray-800 hidden">
                         <div className="flex flex-col lg:flex-row lg:mx-6">
                             <Link to='/' className="my-1 text-sm font-medium text-gray-700  hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0"> Home </Link>
-                            <Link to='/home' className="my-1 text-sm font-medium text-gray-700  hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0"> Dashboard </Link>
+                            <Link to='/dashboard' className="my-1 text-sm font-medium text-gray-700  hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0"> Dashboard </Link>
                             <Link to='/contact' className="my-1 text-sm font-medium text-gray-700 hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0"> Contact </Link>
                             <Link to='/about' className="my-1 text-sm font-medium text-gray-700  hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0"> About </Link>
                             <Link className="my-1 text-sm font-medium text-gray-700  hover:text-blue-500 dark:hover:text-blue-400 lg:mx-4 lg:my-0" to="/login"> Login</Link>

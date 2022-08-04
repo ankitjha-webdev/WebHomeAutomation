@@ -31,7 +31,7 @@ router.delete('/:id', async (req, res) => {
         try {
             const user = await User.findById(req.params.id);   
         try {
-            await Post.deleteMany({username: user.username});
+            await Room.deleteMany({username: user.username});
             await User.findByIdAndDelete(req.params.id)
             res.status(200).json("User deleted successfully");
         } catch (error) {
@@ -68,17 +68,6 @@ router.get('/', async (req, res) => {
     } 
 }
 )
-// router.get('/', async function(req, res) {
-//     User.find({}, function(err, Users){
-//       if (err)
-//           return done(err);
-  
-//       if (Users) {
-//         console.log("Users count : " + user.length);
-//         res.status(200).json(Users);
-//       }
-//     });
-//   });
 
 
 module.exports = router;

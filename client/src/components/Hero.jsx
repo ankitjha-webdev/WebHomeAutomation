@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import login from '../images/smart-home-banner-img.gif'
 import { About } from '../pages/About';
 import { Footer } from './Footer';
-import { StackComp } from './StackComp';
 const Hero = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -15,7 +14,7 @@ const Hero = () => {
      
     return (
         <div>
-            <div className='text-red-600 mx-auto max-w-7xl'>
+            <div className=' mx-auto max-w-7xl'>
                 <header className="bg-white">
                    
                     <div className="container px-6 py-16 mx-auto">
@@ -46,8 +45,6 @@ const Hero = () => {
                     </div>
                 </header>
             </div>
-            <About/>
-            <StackComp/>
         </div>
     )
 }

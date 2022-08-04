@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { ThemeProvider } from "@material-tailwind/react";
 
-
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { ContextProvider } from './context/Context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    <ThemeProvider>
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </ThemeProvider>
   </BrowserRouter>
 );
 

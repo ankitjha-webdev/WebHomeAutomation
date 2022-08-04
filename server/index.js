@@ -7,7 +7,7 @@ const cors = require('cors');
 const authRouter = require('../routes/auth');
 const userRouter = require('../routes/users');  // userRouter is the name of the file (users.js)
 const roomRouter = require('../routes/room'); // roomRouter is the name of the file (rooms.js)
-const deviceRouter = require('../routes/devices'); // deviceRouter is the name of the file (devices.js)
+const multer = require('multer');
 
 dotenv.config();
 const PORT = process.env.PORT || 4000
@@ -20,14 +20,32 @@ dbConnect(); // connect to the mongo db (db.js)
 app.use(express.static(path.resolve(__dirname, '../client/build'))); 
 
   // All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+// });
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name + '-' + Date.now().Date + path.extname(file.originalname));
+  }
 });
+
+const upload = multer({ storage });
+app.post('/api/upload', upload.single('file'), (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Image uploaded successfully',
+    image: req.file.filename
+  });
+
+})
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/room', roomRouter);
-app.use('/api/device', deviceRouter);
 
 // 404 url not found
 app.use((req, res,next) =>{
